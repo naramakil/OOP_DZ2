@@ -1,12 +1,21 @@
 package ru.netology.OOP_2;
 
 public class Radio {
-    public int currentStation;
-    public int currentVolume;
+    private int currentStation;
+    private int currentVolume;
 
     public Radio() {
         currentStation = 0; // Начальная станция
         currentVolume = 50; // Начальная громкость
+    }git
+
+    // Геттеры для получения текущих значений
+    public int getCurrentStation() {
+        return currentStation;
+    }
+
+    public int getCurrentVolume() {
+        return currentVolume;
     }
 
     // Метод для переключения на следующую станцию
@@ -39,14 +48,18 @@ public class Radio {
     public void increaseVolume() {
         if (currentVolume < 100) {
             currentVolume++;
-        } else currentVolume = 100;
+        } else {
+            currentVolume = 100;
+        }
     }
 
 
     public void decreaseVolume() {
         if (currentVolume > 0) {
             currentVolume--;
-        } else currentVolume = 0;
+        } else {
+            currentVolume = 0;
+        }
     }
 
     public void setCurrentVolume(int volume) {
@@ -58,14 +71,4 @@ public class Radio {
             currentVolume = 100; // Принудительно установить максимум
         }
     }
-
-    // Геттеры для получения текущих значений
-    public int getCurrentStation() {
-        return currentStation;
-    }
-
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
 }
