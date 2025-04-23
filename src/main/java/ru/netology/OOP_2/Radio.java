@@ -7,7 +7,7 @@ public class Radio {
     public Radio() {
         currentStation = 0; // Начальная станция
         currentVolume = 50; // Начальная громкость
-    }git
+    }
 
     // Геттеры для получения текущих значений
     public int getCurrentStation() {
