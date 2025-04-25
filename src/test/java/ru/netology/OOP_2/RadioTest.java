@@ -8,7 +8,7 @@ public class RadioTest {
     // Тесты для радиостанций
     @Test
     public void shouldSwitchToNextStation() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentStation(5);
         radio.next();
         Assertions.assertEquals(6, radio.getCurrentStation());
@@ -16,15 +16,15 @@ public class RadioTest {
 
     @Test
     public void shouldSwitchToZeroIfMaxStation() {
-        Radio radio = new Radio();
-        radio.setCurrentStation(9);
+        Radio radio = new Radio(100);
+        radio.setCurrentStation(99);
         radio.next();
         Assertions.assertEquals(0, radio.getCurrentStation());
     }
 
     @Test
     public void shouldSwitchToPrevStation() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentStation(5);
         radio.prev();
         Assertions.assertEquals(4, radio.getCurrentStation());
@@ -32,30 +32,30 @@ public class RadioTest {
 
     @Test
     public void shouldSwitchToMaxIfZeroStation() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(100);
         radio.setCurrentStation(0);
         radio.prev();
-        Assertions.assertEquals(9, radio.getCurrentStation());
+        Assertions.assertEquals(99, radio.getCurrentStation());
     }
 
     @Test
     public void shouldSetStationWithinRange() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentStation(5);
         Assertions.assertEquals(5, radio.getCurrentStation());
     }
 
     @Test
     public void shouldNotSetStationBelowZero() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentStation(-1);
         Assertions.assertEquals(0, radio.getCurrentStation()); // или остаётся предыдущее значение, зависит от реализации
     }
 
     @Test
     public void shouldNotSetStationAboveMax() {
-        Radio radio = new Radio();
-        radio.setCurrentStation(10);
+        Radio radio = new Radio(100);
+        radio.setCurrentStation(100);
         Assertions.assertEquals(0, radio.getCurrentStation()); // или остаётся предыдущее значение
     }
 
